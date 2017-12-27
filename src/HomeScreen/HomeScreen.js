@@ -8,8 +8,8 @@ var {height, width} = Dimensions.get('window');
 import MapView from 'react-native-maps';
 
 const ASPECT_RATIO = width / height;
-const LATITUDE = 47.2338;
-const LONGITUDE = 39.7654;
+const LATITUDE = 46.4764;
+const LONGITUDE = 41.5884;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 const SPACE = 0.01;
@@ -66,6 +66,11 @@ export default class HomeScreen extends Component {
 	        <MapView
 	          provider={this.props.provider}
 	          style={styles.map}
+	          showsUserLocation={true}
+	          followsUserLocation={true}
+	          showsMyLocationButton={true}
+	          showsCompass={true}
+	          zoomEnabled={true}
 	          initialRegion={{
 	            latitude: this.state.a.latitude,
 	            longitude: this.state.a.longitude,
@@ -95,12 +100,17 @@ export default class HomeScreen extends Component {
 const styles = StyleSheet.create({
   container_button: {
     flex: 1,
+    flexDirection: 'column',
     justifyContent: 'flex-start',
-    paddingHorizontal: 10
+    alignItems: 'flex-start',
+    paddingHorizontal: 10,
+    paddingVertical: 10
   },
   button: {
-    alignItems: 'center',
-    backgroundColor: '#DDDDDD',
+  	flex: 1,
+  	flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
     padding: 10
   },
   container: {
